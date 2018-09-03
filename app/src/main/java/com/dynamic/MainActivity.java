@@ -1,4 +1,4 @@
-package com.test.dynamic;
+package com.dynamic;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.play.core.splitinstall.SplitInstallManager;
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClassName("com.test.dynamic", "com.test.dynamic.test.TestActivity");
+                intent.setClassName("com.dynamic", "com.dynamic.module.DynamicActivity");
                 startActivity(intent);
             }
         });
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         SplitInstallRequest request =
                 SplitInstallRequest
                         .newBuilder()
-                        .addModule("test")
+                        .addModule("dynamic-module")
                         .build();
 
         SplitInstallStateUpdatedListener listener = new SplitInstallStateUpdatedListener() {
@@ -69,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
                 if(splitInstallSessionState.sessionId() == mySessionId) {
                     switch (splitInstallSessionState.status()) {
                         case SplitInstallSessionStatus.INSTALLED:
-                            Log.d(TAG, "Module downloaded");
+                            Log.d(TAG, "Dynamic Module downloaded");
+                            Toast.makeText(MainActivity.this, "Dynamic Module downloaded", Toast.LENGTH_SHORT).show();
+                            break;
                     }
                 }
             }

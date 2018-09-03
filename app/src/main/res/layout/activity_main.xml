@@ -19,13 +19,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/download"
-        android:text="Download"/>
+        android:text="Download Dynamic Module"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/download"
         android:id="@+id/start"
-        android:text="Start"/>
+        android:text="Start Dynamic Activity"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

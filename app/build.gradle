@@ -4,7 +4,7 @@ android {
 
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.test.dynamic"
+        applicationId "com.dynamic"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
@@ -19,7 +19,7 @@ android {
         }
     }
 
-    dynamicFeatures = [":test"]
+    dynamicFeatures = [":dynamic-module"]
 }
 
 dependencies {
@@ -28,23 +28,6 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.0'
     implementation 'com.google.android.play:core:1.3.1'
     testImplementation 'junit:junit:4.12'
-}
-
-afterEvaluate {
-    packageDebugBundle.dependsOn "removeBuildConfigDebug"
-    packageReleaseBundle.dependsOn "removeBuildConfigRelease"
-}
-
-task removeBuildConfigRelease() {
-    doFirst {
-        file("$buildDir/intermediates/classes/release/com/bsb/hike/BuildConfig.class").delete()
-    }
-}
-
-task removeBuildConfigDebug() {
-    doFirst {
-        file("$buildDir/intermediates/classes/debug/com/bsb/hike/BuildConfig.class").delete()
-    }
 }
 
 

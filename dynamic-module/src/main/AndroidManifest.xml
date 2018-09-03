@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.test.dynamic.test"
-    split="test">
+    package="com.dynamic.module"
+    split="dynamic-module">
 
     <dist:module
         dist:onDemand="true"
@@ -12,7 +12,7 @@
 
     <application>
         <activity
-            android:name="com.test.dynamic.test.TestActivity"
+            android:name="com.dynamic.module.DynamicActivity"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
